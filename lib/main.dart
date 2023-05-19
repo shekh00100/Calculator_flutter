@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:calculator/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -23,85 +26,70 @@ class _CalculatorState extends State<Calculator> {
         )),
         Row(
           children: [
-            Expanded(
-                child: Container(
-              margin: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    padding: const EdgeInsets.all(22)),
-                onPressed: () {},
-                child: const Text(
-                  "1",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            )),
-            Expanded(
-                child: Container(
-              margin: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    padding: const EdgeInsets.all(22)),
-                onPressed: () {},
-                child: const Text(
-                  "2",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            )),
-            Expanded(
-                child: Container(
-              margin: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    padding: const EdgeInsets.all(22)),
-                onPressed: () {},
-                child: const Text(
-                  "3",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            )),
-            Expanded(
-                child: Container(
-              margin: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    padding: const EdgeInsets.all(22)),
-                onPressed: () {},
-                child: const Text(
-                  "4",
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            )),
+            button(
+                text: "AC", buttonbgcolor: operatorColor, tcolor: orangecolor),
+            button(text: "<"),
+            button(text: ""),
+            button(text: "/")
           ],
-        )
+        ),
+        Row(
+          children: [
+            button(text: "7"),
+            button(text: "8"),
+            button(text: "9"),
+            button(text: "X")
+          ],
+        ),
+        Row(
+          children: [
+            button(text: "4"),
+            button(text: "5"),
+            button(text: "6"),
+            button(text: "-")
+          ],
+        ),
+        Row(
+          children: [
+            button(text: "1"),
+            button(text: "2"),
+            button(text: "3"),
+            button(text: "+")
+          ],
+        ),
+        Row(
+          children: [
+            button(text: "%"),
+            button(text: "0"),
+            button(text: "."),
+            button(text: "=", buttonbgcolor: Colors.redAccent)
+          ],
+        ),
       ]),
     );
+  }
+
+  Widget button({text, tcolor = Colors.white, buttonbgcolor = buttonColor}) {
+    return Expanded(
+        child: Container(
+      margin: const EdgeInsets.all(8),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero,
+          ),
+          padding: const EdgeInsets.all(22),
+          primary: buttonbgcolor,
+        ),
+        onPressed: () {},
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 18,
+            color: tcolor,
+          ),
+        ),
+      ),
+    ));
   }
 }
