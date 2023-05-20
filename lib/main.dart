@@ -20,9 +20,37 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(children: [
+        // input output area
         Expanded(
             child: Container(
-          color: Colors.amberAccent,
+          width: double.infinity,
+          padding: EdgeInsets.all(12),
+          // color: Colors.orange,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  "Input",
+                  style: TextStyle(
+                    fontSize: 48,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Output",
+                  style: TextStyle(
+                    fontSize: 34,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+              ]),
         )),
         Row(
           children: [
@@ -30,7 +58,7 @@ class _CalculatorState extends State<Calculator> {
                 text: "AC", buttonbgcolor: operatorColor, tcolor: orangecolor),
             button(text: "<"),
             button(text: ""),
-            button(text: "/")
+            button(text: "/", tcolor: orangecolor, buttonbgcolor: operatorColor)
           ],
         ),
         Row(
@@ -38,7 +66,7 @@ class _CalculatorState extends State<Calculator> {
             button(text: "7"),
             button(text: "8"),
             button(text: "9"),
-            button(text: "X")
+            button(text: "x", tcolor: orangecolor, buttonbgcolor: operatorColor)
           ],
         ),
         Row(
@@ -46,7 +74,7 @@ class _CalculatorState extends State<Calculator> {
             button(text: "4"),
             button(text: "5"),
             button(text: "6"),
-            button(text: "-")
+            button(text: "-", tcolor: orangecolor, buttonbgcolor: operatorColor)
           ],
         ),
         Row(
@@ -54,15 +82,16 @@ class _CalculatorState extends State<Calculator> {
             button(text: "1"),
             button(text: "2"),
             button(text: "3"),
-            button(text: "+")
+            button(text: "+", tcolor: orangecolor, buttonbgcolor: operatorColor)
           ],
         ),
         Row(
           children: [
-            button(text: "%"),
+            button(
+                text: "%", tcolor: orangecolor, buttonbgcolor: operatorColor),
             button(text: "0"),
             button(text: "."),
-            button(text: "=", buttonbgcolor: Colors.redAccent)
+            button(text: "=", buttonbgcolor: orangecolor)
           ],
         ),
       ]),
@@ -76,7 +105,7 @@ class _CalculatorState extends State<Calculator> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.zero,
+            borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.all(22),
           primary: buttonbgcolor,
